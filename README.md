@@ -1,1 +1,1 @@
-2D coler mixer. plced at https://2d-mixer.colors.ink
+2D coler mixer. placed at https://2d-mixer.colors.ink
