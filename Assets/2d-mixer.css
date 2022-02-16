@@ -84,6 +84,13 @@ menu {
     padding: 0;
 }
 
+menu sup {
+    font-size: 0.6em;
+    vertical-align: baseline;
+    position: relative;
+    top: -0.7em;
+}
+
 #top-menu  li{
     display: inline-block;
     font-weight: 700;
@@ -93,6 +100,10 @@ menu {
 
 #top-menu a {
     text-decoration: none;
+}
+
+footer {
+    font-size: 0.9em;
 }
 
 
