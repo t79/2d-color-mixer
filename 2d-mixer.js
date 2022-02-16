@@ -12,10 +12,34 @@ var t79CM2 = {
 
 function initColorMixer() {
     getElements();
+    setEvent();
     setInputColor();
-    setUpMapTable(null);
+    setUpMapTable(7);
 }
 
+
+function colorChanged(e) {
+
+    if (e.target.id == 'color-input-text-1') {
+        t79CM2.colorInputPicker[0].value = e.target.value;
+    } else if (e.target.id == 'color-input-picker-1') {
+        t79CM2.colorInputText[0].value = e.target.value;
+    } else if (e.target.id == 'color-input-text-2') {
+        t79CM2.colorInputPicker[1].value = e.target.value;
+    } else if (e.target.id == 'color-input-picker-2') {
+        t79CM2.colorInputText[1].value = e.target.value;
+    } else if (e.target.id == 'color-input-text-3') {
+        t79CM2.colorInputPicker[2].value = e.target.value;
+    } else if (e.target.id == 'color-input-picker-3') {
+        t79CM2.colorInputText[2].value = e.target.value;
+    } else if (e.target.id == 'color-input-text-4') {
+        t79CM2.colorInputPicker[3].value = e.target.value;
+    } else if (e.target.id == 'color-input-picker-4') {
+        t79CM2.colorInputText[3].value = e.target.value;
+    }
+
+    setColor();
+}
 
 function setUpMapTable(numberOfShades) {
 
@@ -190,6 +214,17 @@ function setInputColor() {
             t79CM2.colorInputPicker[3].value = "#" + singleParam[1];
         }
     }
+}
+
+function setEvent() {
+    t79CM2.colorInputText[0].addEventListener('input', colorChanged);
+    t79CM2.colorInputPicker[0].addEventListener('input', colorChanged);
+    t79CM2.colorInputText[1].addEventListener('input', colorChanged);
+    t79CM2.colorInputPicker[1].addEventListener('input', colorChanged);
+    t79CM2.colorInputText[2].addEventListener('input', colorChanged);
+    t79CM2.colorInputPicker[2].addEventListener('input', colorChanged);
+    t79CM2.colorInputText[3].addEventListener('input', colorChanged);
+    t79CM2.colorInputPicker[3].addEventListener('input', colorChanged);
 }
 
 function getElements() {
