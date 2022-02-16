@@ -106,7 +106,7 @@ menu {
 }
 
 #color-input {
-    width: 100%;
+    width: 80%;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
@@ -132,11 +132,12 @@ menu {
     align-items: flex-start;
 }
 
-.color-input-container {
+.color-input-inner-container {
     width: 100%;
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
+    align-items: center;
     border: 0;
 }
 
@@ -165,7 +166,7 @@ menu {
 }
 
 .color-input-text-field {
-    min-width: calc(100% - 4.5rem);
+    width: calc(100% - 4.5rem);
     border-right: var(--input-border);
 }
 
@@ -177,15 +178,16 @@ menu {
 }
 
 #color-input input[type=text] {
-    min-width: 100%;
+    width: 100%;
     min-height: 4.5rem;
     font-family: "Helvetica", Helvetica, Arial, sans-serif;
     line-height: 1.6;
     font-size: 1.5em;
     letter-spacing: 0.075em;
     padding: 0.5em;
-    background-color: white;
+    background-color: #fff0;
     margin: 0;
+    border: 0;
 } 
 
 #color-input input[type=color] {
@@ -195,6 +197,7 @@ menu {
     padding: 0;
     margin-left: -2.5em;
     margin-top: -2.5em;
+    border: 0;
 }
 
 
