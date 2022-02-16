@@ -86,6 +86,66 @@ function constructMap() {
     }
 
 }
+function setColor() {
+
+    const color1 = w3color(t79CM2.colorInputPicker[0].value);
+    const color2 = w3color(t79CM2.colorInputPicker[1].value);
+    const color3 = w3color(t79CM2.colorInputPicker[2].value);
+    const color4 = w3color(t79CM2.colorInputPicker[3].value);
+
+    const color1rgb = color1.toRgb();
+    const color2rgb = color2.toRgb();
+    const color3rgb = color3.toRgb();
+    const color4rgb = color4.toRgb();
+
+    const stepRtop = (color3rgb.r - color1rgb.r) / (t79CM2.shadesArray.length - 1);
+    const stepGtop = (color3rgb.g - color1rgb.g) / (t79CM2.shadesArray.length - 1); 
+    const stepBtop = (color3rgb.b - color1rgb.b) / (t79CM2.shadesArray.length - 1); 
+
+    const stepRbottom = (color4rgb.r - color2rgb.r) / (t79CM2.shadesArray.length - 1);
+    const stepGbottom = (color4rgb.g - color2rgb.g) / (t79CM2.shadesArray.length - 1); 
+    const stepBbottom = (color4rgb.b - color2rgb.b) / (t79CM2.shadesArray.length - 1);
+
+    for (colIndex in t79CM2.shadesArray) {
+
+        const colorRtop = color1rgb.r + stepRtop * colIndex;
+        const colorGtop = color1rgb.g + stepGtop * colIndex;
+        const colorBtop = color1rgb.b + stepBtop * colIndex;
+
+        const colorRbottom = color2rgb.r + stepRbottom * colIndex;
+        const colorGbottom = color2rgb.g + stepGbottom * colIndex;
+        const colorBbottom = color2rgb.b + stepBbottom * colIndex;
+
+        const colColor1 = w3color('rgb(' + colorRtop + ',' + colorGtop+ ',' + colorBtop + ')');
+        const colColor2 = w3color('rgb(' + colorRbottom + ',' + colorGbottom+ ',' + colorBbottom + ')');
+
+        const colColor1rgb = colColor1.toRgb();
+        const colColor2rgb = colColor2.toRgb();
+
+        const colStepR = (colColor2rgb.r - colColor1rgb.r) / (t79CM2.shadesArray[colIndex].length - 1);
+        const colStepG = (colColor2rgb.g - colColor1rgb.g) / (t79CM2.shadesArray[colIndex].length - 1);
+        const colStepB = (colColor2rgb.b - colColor1rgb.b) / (t79CM2.shadesArray[colIndex].length - 1);
+
+
+        for (rowIndex in t79CM2.shadesArray[colIndex]) {
+
+            const colColorR = colColor1rgb.r + colStepR * rowIndex;
+            const colColorG = colColor1rgb.g + colStepG * rowIndex;
+            const colColorB = colColor1rgb.b + colStepB * rowIndex;
+            
+            console.log('output color singel: ' + colColorR + ' ' + colColorG + ' ' + colColorB);
+
+
+            const outputColor = w3color('rgb(' + colColorR + ',' + colColorG + ',' + colColorB + ')');
+
+            console.log('output color: ' + outputColor.toHexString() + ' ' + colIndex + ',' + rowIndex + ' ' + t79CM2.shadesArray.length + ',' + t79CM2.shadesArray[colIndex].length );
+
+            t79CM2.shadesArray[colIndex][rowIndex]['cellViewBackground'].style.fill = outputColor.toHexString();
+
+        }
+    }
+
+    
 }
 
 function setInputColor() {
