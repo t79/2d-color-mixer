@@ -48,6 +48,44 @@ function setUpMapTable(numberOfShades) {
 
         t79CM2.colorOutputView.appendChild(colorMapRow);
     }
+function constructMap() {
+
+    for (colIndex in t79CM2.shadesArray) {
+
+        const colorMapWidth = t79CM2.shadesArray[colIndex][0]['rowView'].clientWidth / t79CM2.shadesArray[colIndex].length;
+
+        for (rowIndex in t79CM2.shadesArray[colIndex]) {
+
+            const svgContainer = document.createElement('div');
+            svgContainer.classList.add('svg-container');
+            t79CM2.shadesArray[colIndex][rowIndex]['viewContainer'].appendChild(svgContainer);
+
+            const svgColorField = document.createElementNS("http://www.w3.org/2000/svg", 'svg');
+            svgContainer.appendChild(svgColorField);
+
+            let padding = 2;
+            if (rowIndex == t79CM2.shadesArray[colIndex].length - 1) {
+                padding = 2;
+            }
+
+            svgColorField.setAttribute('width',  '' + (colorMapWidth+padding));
+            svgColorField.setAttribute('height', '' + (colorMapWidth+padding));
+
+            const colorRect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+            colorRect.classList.add('color-rect');
+            colorRect.setAttributeNS(null, 'width', '' + (colorMapWidth+padding));
+            colorRect.setAttributeNS(null, 'height', '' + (colorMapWidth+padding));
+            colorRect.style.fill = '#ffffff';
+            svgColorField.appendChild(colorRect);
+            t79CM2.shadesArray[colIndex][rowIndex]['cellViewBackground'] = colorRect;
+            t79CM2.shadesArray[colIndex][rowIndex]['viewContainer'].style.width = '' + (colorMapWidth) + 'px';
+            t79CM2.shadesArray[colIndex][rowIndex]['viewContainer'].style.height = '' + (colorMapWidth) + 'px';
+
+
+        }
+    }
+
+}
 }
 
 function setInputColor() {
