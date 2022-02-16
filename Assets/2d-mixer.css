@@ -2,6 +2,10 @@
 	box-sizing: border-box;
 }
 
+:root {
+    --input-border: 0.15em solid black;
+}
+
 html {
     padding: 0;
 	margin: 0;
@@ -93,11 +97,105 @@ menu {
 
 
 
+#color-input-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
 
+#color-input {
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    border: var(--input-border);
+}
 
+.color-input-top-bottom {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    border: 0;
+}
 
+#color-input-top {
+    align-items: flex-end;
+    border-bottom: var(--input-border);
+}
 
+#color-input-bottom {
+    align-items: flex-start;
+}
 
+.color-input-container {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    border: 0;
+}
+
+#color-input-top-left-container {
+    border-right: var(--input-border);
+}
+
+#color-input-top-left-text {
+    margin: 0;
+}
+
+#color-input-top-right-text {
+    margin: 0;
+}
+
+#color-input-botom-left-container {
+    border-right: var(--input-border);
+}
+
+#color-input-bottom-left-text {
+    margin: 0;
+}
+
+#color-input-bottom-right-text {
+    margin: 0;
+}
+
+.color-input-text-field {
+    min-width: calc(100% - 4.5rem);
+    border-right: var(--input-border);
+}
+
+.color_input-picker-field {
+    height: 4.5rem;
+    width: 4.5rem;
+    margin: 0;
+    overflow: hidden;
+}
+
+#color-input input[type=text] {
+    min-width: 100%;
+    min-height: 4.5rem;
+    font-family: "Helvetica", Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    font-size: 1.5em;
+    letter-spacing: 0.075em;
+    padding: 0.5em;
+    background-color: white;
+    margin: 0;
+} 
+
+#color-input input[type=color] {
+    padding: 0;
+    height: 12em;
+    width: 12em;
+    padding: 0;
+    margin-left: -2.5em;
+    margin-top: -2.5em;
+}
 
 
 
