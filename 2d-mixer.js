@@ -15,6 +15,8 @@ function initColorMixer() {
     setInputColor();
     setUpMapTable(null);
 }
+
+
 function setUpMapTable(numberOfShades) {
 
     let numShades = 0;
@@ -48,6 +50,11 @@ function setUpMapTable(numberOfShades) {
 
         t79CM2.colorOutputView.appendChild(colorMapRow);
     }
+
+    constructMap();
+
+}
+
 function constructMap() {
 
     for (colIndex in t79CM2.shadesArray) {
@@ -85,7 +92,10 @@ function constructMap() {
         }
     }
 
+    setColor();
+
 }
+
 function setColor() {
 
     const color1 = w3color(t79CM2.colorInputPicker[0].value);
@@ -180,7 +190,6 @@ function setInputColor() {
             t79CM2.colorInputPicker[3].value = "#" + singleParam[1];
         }
     }
-
 }
 
 function getElements() {
@@ -192,4 +201,5 @@ function getElements() {
     t79CM2.colorInputPicker.push(document.getElementById('color-input-picker-3'));
     t79CM2.colorInputText.push(document.getElementById('color-input-text-4'));
     t79CM2.colorInputPicker.push(document.getElementById('color-input-picker-4'));
+    t79CM2.colorOutputView = document.getElementById('output-color-view');
 }
