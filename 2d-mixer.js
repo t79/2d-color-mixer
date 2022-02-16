@@ -13,6 +13,41 @@ var t79CM2 = {
 function initColorMixer() {
     getElements();
     setInputColor();
+    setUpMapTable(null);
+}
+function setUpMapTable(numberOfShades) {
+
+    let numShades = 0;
+    if (numberOfShades == null) {
+        numShades = 5;
+    } else {
+        numShades = numberOfShades;
+    }
+
+    t79CM2.shadesArray = Array(numShades).fill();
+    
+    for (colIndex in t79CM2.shadesArray) {
+        t79CM2.shadesArray[colIndex] = Array(numShades).fill();
+
+        const colorMapRow = document.createElement('div');
+        colorMapRow.classList.add('color-view-row-container');
+
+        for (rowIndex in t79CM2.shadesArray[colIndex]) {
+
+            let field = {};
+            field['rowView'] = colorMapRow;
+
+            const svgContainer = document.createElement('div');
+            field['viewContainer'] = svgContainer;
+            colorMapRow.appendChild(svgContainer);
+
+            t79CM2.colorOutputView.appendChild(colorMapRow);
+            t79CM2.shadesArray[colIndex][rowIndex] = field;
+
+        }
+
+        t79CM2.colorOutputView.appendChild(colorMapRow);
+    }
 }
 
 function setInputColor() {
