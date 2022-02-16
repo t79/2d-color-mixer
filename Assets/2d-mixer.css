@@ -45,9 +45,9 @@ main {
 
 .content-block{
     display: flex;
-	justify-content: flex-start;
+	justify-content: center;
 	flex-flow: column nowrap;
-    align-items: flex-start;
+    align-items: center;
     border-radius: 0.3em;
     color: black;
     width: min(calc(40rem + 25vw), 90vw);
@@ -106,7 +106,7 @@ menu {
 }
 
 #color-input {
-    width: 80%;
+    width: 70%;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
@@ -199,6 +199,36 @@ menu {
     margin-top: -2.5em;
     border: 0;
 }
+
+#output-color-view {
+    width: 100%;
+    display: flex;
+	justify-content: center;
+	flex-flow: column nowrap;
+    align-items: center;
+    border-radius: 0.3em;
+    color: black;
+    padding: 1em 0em 1em 0em;
+    margin: 0;
+    overflow: hidden;
+}
+
+.color-view-row-container {
+    width: 60%;
+    margin: 0;
+    display: flex;
+	justify-content: center;
+	flex-flow: row nowrap;
+    gap: 0;
+	align-items: center;
+}
+
+.svg-container {
+    width: 100%;
+    margin-top: 0px;
+    margin-left: 0px;
+}
+
 
 
 
